@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin - Slot Demo System</title>
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <style>
+        body { background: #1a1a2e; color: #fff; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .login-card { background: #162447; border: 1px solid #0f4c81; border-radius: 12px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0px 8px 24px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body>
+    <div class="login-card text-center">
+        <h3 class="mb-3 text-warning">🎰 ADMIN PANEL DEMO</h3>
+        <p class="text-secondary small mb-4">Gunakan akun bawaan untuk mencoba sistem admin simulasi.</p>
+        
+        <div class="mb-3 text-start">
+            <label class="form-label text-light">Username Demo</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" value="admin_demo" readonly>
+        </div>
+        <div class="mb-4 text-start">
+            <label class="form-label text-light">Password Demo</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" value="demo123" readonly>
+        </div>
+        
+        <button onclick="window.location.href='dashboard.html'" class="btn btn-warning w-100 fw-bold py-2 shadow">MASUK KE DASHBOARD</button>
+    </div>
+</body>
+</html>
