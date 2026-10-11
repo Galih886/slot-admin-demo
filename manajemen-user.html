@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Demo Version</title>
+    <!-- Menggunakan Bootstrap agar tampilan mirip panel admin profesional -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+    <div class="container bg-white p-4 rounded shadow-sm">
+        <h2 class="mb-4 text-primary">⚙️ Panel Admin Slot (Versi Demo)</h2>
+        <div class="alert alert-info"><strong>Mode Demo:</strong> Anda bebas mengubah saldo dan setelan di bawah ini untuk uji coba.</div>
+
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Username</th>
+                    <th>Saldo Demo Player</th>
+                    <th>Status Akun</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>player_demo1</strong></td>
+                    <td><input type="number" id="saldoInput" class="form-control" value="5000000"></td>
+                    <td>
+                        <select id="statusInput" class="form-select">
+                            <option value="normal">Normal (RTP 96%)</option>
+                            <option value="gacor">Setting Gacor (RTP 99%)</option>
+                            <option value="rungkad">Setting Rungkad (RTP 10%)</option>
+                        </select>
+                    </td>
+                    <td><button onclick="simpanData()" class="btn btn-success w-100">Simpan Perubahan</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p id="notifikasi" class="text-success fw-bold mt-2"></p>
+    </div>
+
+    <script>
+        // Load data lama dari browser jika ada
+        if(localStorage.getItem('demo_saldo')) {
+            document.getElementById('saldoInput').value = localStorage.getItem('demo_saldo');
+            document.getElementById('statusInput').value = localStorage.getItem('demo_status');
+        }
+
+        function simpanData() {
+            let saldo = document.getElementById('saldoInput').value;
+            let status = document.getElementById('statusInput').value;
+
+            // Trik Inti: Data disimpan di browser user, aman dari kebocoran database asli
+            localStorage.setItem('demo_saldo', saldo);
+            localStorage.setItem('demo_status', status);
+
+            document.getElementById('notifikasi').innerText = "✅ Data demo berhasil diperbarui di sistem!";
+            setTimeout(() => { document.getElementById('notifikasi').innerText = ""; }, 3000);
+        }
+    </script>
+</body>
+</html>
