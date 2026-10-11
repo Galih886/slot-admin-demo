@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin Slot Demo</title>
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body { background: #f4f6f9; font-family: sans-serif; }
+        .sidebar { background: #111; color: #fff; min-height: 100vh; padding: 20px; }
+        .sidebar a { color: #ccc; text-decoration: none; display: block; padding: 12px; border-radius: 6px; }
+        .sidebar a:hover, .sidebar a.active { background: #ffc107; color: #000; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigasi -->
+            <div class="col-md-2 sidebar">
+                <h4 class="text-warning mb-4">⚙️ Slot Admin</h4>
+                <a href="dashboard.html" class="active mb-2">📊 Dashboard</a>
+                <a href="manajemen-user.html" class="mb-2">👥 Manajemen User</a>
+                <a href="index.html" class="text-danger mt-5">🚪 Keluar Demo</a>
+            </div>
+            
+            <!-- Isi Dashboard -->
+            <div class="col-md-10 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Statistik Server Demo</h2>
+                    <span class="badge bg-info p-2">Mode Simulasi Aktif</span>
+                </div>
+                
+                <!-- Kotak Informasi Utama -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card bg-primary text-white p-3 shadow-sm">
+                            <h5>Total Pemain Terdaftar</h5>
+                            <h3>1,240 <small style="font-size: 14px;">User</small></h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-white p-3 shadow-sm">
+                            <h5>Total Kemenangan Demo (Win)</h5>
+                            <h3>IDR 456.230.000</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger text-white p-3 shadow-sm">
+                            <h5>Total Kekalahan Demo (Lose)</h5>
+                            <h3>IDR 612.890.000</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grafik Grafik Tiruan -->
+                <div class="card p-4 shadow-sm">
+                    <h5 class="card-title">Grafik Transaksi Naik-Turun Player (Simulasi 7 Hari Terakhir)</h5>
+                    <canvas id="grafikDemo" width="400" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('grafikDemo').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+                datasets: [{
+                    label: 'Perputaran Kredit Koin',
+                    data:,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
